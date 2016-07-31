@@ -157,7 +157,6 @@ echo "
 <script type="text/javascript" src="../js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/smoothscroll.js"></script>
 <script type="text/javascript" src="../js/markerwithlabel_packed.js"></script>
 <script type="text/javascript" src="../js/infobox.js"></script>
 <script type="text/javascript" src="../js/owl.carousel.min.js"></script>
