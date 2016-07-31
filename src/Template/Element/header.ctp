@@ -11,7 +11,7 @@
                         <!--<span class="icon-bar"></span>-->
                     <!--</button>-->
                     <div class="navbar-brand nav" id="brand">
-                        <a href="/"><img src="assets/img/logo.png" alt="brand"></a>
+                        <?= $this->Html->image('logo.png', ['url' => '/']); ?>
                     </div>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">

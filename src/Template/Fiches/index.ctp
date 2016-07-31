@@ -26,9 +26,9 @@
 <?php foreach  ($imgs as $image){
 echo "
  <div class='property-slide'>
-                        <a href='../upload/img/$image->id.jpg' class='image-popup'>
+                        <a href='../files/$image->ad_id&$image->id.png' class='image-popup'>
                             <div class='overlay'><h3>Front View</h3></div>
-                            <img  src='../upload/img/$image->id.jpg'>
+                            <img src='../files/$image->ad_id&$image->id.png'>
                         </a>
                     </div>
 ";
@@ -152,3 +152,35 @@ echo "
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript" src="../js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/smoothscroll.js"></script>
+<script type="text/javascript" src="../js/markerwithlabel_packed.js"></script>
+<script type="text/javascript" src="../js/infobox.js"></script>
+<script type="text/javascript" src="../js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="../js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../js/jquery.placeholder.js"></script>
+<script type="text/javascript" src="../js/icheck.min.js"></script>
+<script type="text/javascript" src="../js/retina-1.1.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.raty.min.js"></script>
+<script type="text/javascript" src="../js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="../js/jshashtable-2.1_src.js"></script>
+<script type="text/javascript" src="../js/jquery.numberformatter-1.2.3.js"></script>
+<script type="text/javascript" src="../js/tmpl.js"></script>
+<script type="text/javascript" src="../js/jquery.dependClass-0.1.js"></script>
+<script type="text/javascript" src="../js/draggable-0.1.js"></script>
+<script type="text/javascript" src="../js/jquery.slider.js"></script>
+<script type="text/javascript" src="../js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="../js/custom-map.js"></script>
+<script type="text/javascript" src="../js/custom.js"></script>
+
+
+<script type="text/javascript">
+    $(window).load(function () {
+        initializeOwl(false);
+    });
+</script>

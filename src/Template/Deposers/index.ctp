@@ -13,7 +13,7 @@
 
         <div class="container">
             <header><h1>Déposer votre offre</h1></header>
-            <?= $this->Form->create(null, ['url' => ['action' => 'submit']]); ?>
+            <?= $this->Form->create(null, ['url' => ['action' => 'submit'], 'enctype' => 'multipart/form-data']); ?>
                 <div class="row">
                     <div class="block">
                         <div class="col-md-12 col-sm-12">
@@ -119,7 +119,11 @@
                                     <header><h2>Télécharger des images.</h2></header>
                                     <div class="center">
                                         <div class="form-group">
-                                            <input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="Parcourir les fichiers">
+                                            <input id="file-upload" name="newsImage[]" type="file" class="file"
+                                                   multiple="true" data-show-upload="false" data-show-caption="false"
+                                                   data-show-remove="false" accept="image/jpeg,image/png"
+                                                   data-browse-class="btn btn-default"
+                                                   data-browse-label="Parcourir les fichiers">
                                             <figure class="note"><strong>Indice:</strong> Vous pouvez télécharger tous les fichiers en une seule fois!</figure>
                                         </div>
                                     </div>
@@ -185,63 +189,6 @@
 
     <script>
 
-//        var placeSearch, autocomplete;
-//        var componentForm = {
-//            street_number: 'short_name',
-//            route: 'long_name',
-//            locality: 'long_name',
-//            administrative_area_level_1: 'short_name',
-//            country: 'long_name',
-//            postal_code: 'short_name'
-//        };
-//
-//        function initAutocomplete() {
-//
-//            autocomplete = new google.maps.places.Autocomplete(
-//                    /** @type {!HTMLInputElement} */(document.getElementById('city')),
-//                    {types: ['geocode']});
-//
-//            autocomplete.addListener('place_changed', fillInAddress);
-//        }
-//
-//
-//        function fillInAddress() {
-//
-//            var place = autocomplete.getPlace();
-//
-//            for (var component in componentForm) {
-//                document.getElementById(component).value = '';
-//                document.getElementById(component).disabled = false;
-//            }
-//
-//
-//            for (var i = 0; i < place.address_components.length; i++) {
-//                var addressType = place.address_components[i].types[0];
-//                if (componentForm[addressType]) {
-//                    var val = place.address_components[i][componentForm[addressType]];
-//                    document.getElementById(addressType).value = val;
-//                }
-//            }
-//        }
-//
-//
-//        function geolocate() {
-//            if (navigator.geolocation) {
-//                navigator.geolocation.getCurrentPosition(function(position) {
-//                    var geolocation = {
-//                        lat: position.coords.latitude,
-//                        lng: position.coords.longitude
-//                    };
-//                    var circle = new google.maps.Circle({
-//                        center: geolocation,
-//                        radius: position.coords.accuracy
-//                    });
-//                    autocomplete.setBounds(circle.getBounds());
-//                });
-//            }
-//        }
-//
-
 
 
         function showResult(result) {
@@ -262,12 +209,13 @@
                 });
             }
         }
-        var button = document.getElementById('city');
-        button.addEventListener("mouseout", function () {
+        document.addEventListener("click", function () {
             var city = document.getElementById('city').value;
-            var address = city;
+            var address = city + ' france';
+
             getLatitudeLongitude(showResult, address)
         });
+
 
     </script>
 
