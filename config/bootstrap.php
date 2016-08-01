@@ -222,4 +222,3 @@ Type::build('datetime')
 
 Plugin::load('DebugKit');
 
-Plugin::load('DebugKit');

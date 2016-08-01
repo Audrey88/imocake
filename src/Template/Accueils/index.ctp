@@ -42,7 +42,7 @@
                                 </select>
                             </div><!-- /.form-group -->
                             <div class="form-group">
-                                <?= $this->Form->input('Departement', ['options' => $query, 'name' => __('Select an Example')]); ?>
+                                <?= $this->Form->input('Departement', ['options' => $query]); ?>
                             </div><!-- /.form-group -->
                             <div class="form-group">
                                 <select name="district">
@@ -125,148 +125,96 @@
         <div class="container">
             <header class="section-title">
                 <h2>Dernières annonces en ligne</h2>
-                <a href="properties-listing.html" class="link-arrow">Toutes les annonces</a>
+                <a href="offres" class="link-arrow">Toutes les annonces</a>
             </header>
             <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="property">
-                        <a href="property-detail.html">
-                            <div class="property-image">
-                                <img alt="" src="<?= $this->Url->image('property-06.jpg'); ?>">
+
+                <?php foreach  ($ads as $ad){
+                $tow = $ad->town;
+                $type = $ad->type_ad;
+                $image = $ad->images[0];
+                echo "
+
+                <div class='col-md-3 col-sm-6'>
+                    <div class='property'>
+                        <a href='fiches/$ad->id'>
+                            <div class='property-image'>
+                                <img alt='' src='../files/$ad->id&$image->id.png '>
 
                             </div>
-                            <div class="overlay">
-                                <div class="info">
-                                    <div class="tag price">$ 11,000</div>
-                                    <h3>3398 Lodgeville Road</h3>
-                                    <figure>Golden Valley, MN 55427</figure>
+                            <div class='overlay'>
+                                <div class='info'>
+                                    <div class='tag price'>$ad->price €</div>
+                                    <h3>$type->type_name</h3>
+                                    <figure> $tow->town_zip_code, $tow->town_name</figure>
+
                                 </div>
-                                <ul class="additional-info">
+                                <ul class='additional-info'>
                                     <li>
-                                        <header>Area:</header>
-                                        <figure>240m<sup>2</sup></figure>
+                                        <header>Surface :</header>
+                                        <figure>$ad->surface<sup>2</sup></figure>
                                     </li>
                                     <li>
-                                        <header>Beds:</header>
-                                        <figure>2</figure>
+                                        <header>Divisible:</header>
+                                        ";
+                                        if($ad->is_divisible == 1){
+                                        echo "
+                                        <figure>Oui</figure>
+                                        ";
+                                        }
+                                        else {
+                                        echo "
+                                        <figure>Non</figure>
+                                        ";
+                                        }
+                                        echo"
                                     </li>
                                     <li>
-                                        <header>Baths:</header>
-                                        <figure>2</figure>
+                                        <header>A vendre :</header>
+                                        ";
+                                        if($ad->for_sale == 1){
+                                        echo "
+                                        <figure>Oui</figure>
+                                        ";
+                                        }
+                                        else {
+                                        echo "
+                                        <figure>Non</figure>
+                                        ";
+                                        }
+                                        echo"
                                     </li>
                                     <li>
-                                        <header>Garages:</header>
-                                        <figure>0</figure>
+                                        <header>A louer :</header>
+                                        ";
+                                        if($ad->for_rent == 1){
+                                        echo "
+                                        <figure>Oui</figure>
+                                        ";
+                                        }
+                                        else {
+                                        echo "
+                                        <figure>Non</figure>
+                                        ";
+                                        }
+                                        echo"
                                     </li>
                                 </ul>
                             </div>
                         </a>
                     </div><!-- /.property -->
                 </div><!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="property">
-                        <a href="property-detail.html">
-                            <div class="property-image">
-                                <img alt="" src="<?= $this->Url->image('property-04.jpg'); ?>">
-                            </div>
-                            <div class="overlay">
-                                <div class="info">
-                                    <div class="tag price">$ 38,000</div>
-                                    <h3>2186 Rinehart Road</h3>
-                                    <figure>Doral, FL 33178 </figure>
-                                </div>
-                                <ul class="additional-info">
-                                    <li>
-                                        <header>Area:</header>
-                                        <figure>240m<sup>2</sup></figure>
-                                    </li>
-                                    <li>
-                                        <header>Beds:</header>
-                                        <figure>3</figure>
-                                    </li>
-                                    <li>
-                                        <header>Baths:</header>
-                                        <figure>1</figure>
-                                    </li>
-                                    <li>
-                                        <header>Garages:</header>
-                                        <figure>1</figure>
-                                    </li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div><!-- /.property -->
-                </div><!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="property">
-                        <a href="property-detail.html">
-                            <div class="property-image">
-                                <img alt="" src="<?= $this->Url->image('property-07.jpg'); ?>">
-                            </div>
-                            <div class="overlay">
-                                <div class="info">
-                                    <div class="tag price">$ 325,000</div>
-                                    <h3>3705 Brighton Circle Road</h3>
-                                    <figure>Glenwood, MN 56334</figure>
-                                </div>
-                                <ul class="additional-info">
-                                    <li>
-                                        <header>Area:</header>
-                                        <figure>240m<sup>2</sup></figure>
-                                    </li>
-                                    <li>
-                                        <header>Beds:</header>
-                                        <figure>3</figure>
-                                    </li>
-                                    <li>
-                                        <header>Baths:</header>
-                                        <figure>1</figure>
-                                    </li>
-                                    <li>
-                                        <header>Garages:</header>
-                                        <figure>1</figure>
-                                    </li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div><!-- /.property -->
-                </div><!-- /.col-md-3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="property">
-                        <a href="property-detail.html">
-                            <div class="property-image">
-                                <img alt="" src="<?= $this->Url->image('property-08.jpg'); ?>">
-                            </div>
-                            <div class="overlay">
-                                <div class="info">
-                                    <div class="tag price">$ 16,000</div>
-                                    <h3>362 Lynn Ogden Lane</h3>
-                                    <figure>Galveston, TX 77550</figure>
-                                </div>
-                                <ul class="additional-info">
-                                    <li>
-                                        <header>Area:</header>
-                                        <figure>240m<sup>2</sup></figure>
-                                    </li>
-                                    <li>
-                                        <header>Beds:</header>
-                                        <figure>3</figure>
-                                    </li>
-                                    <li>
-                                        <header>Baths:</header>
-                                        <figure>1</figure>
-                                    </li>
-                                    <li>
-                                        <header>Garages:</header>
-                                        <figure>1</figure>
-                                    </li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div><!-- /.property -->
-                </div><!-- /.col-md-3 -->
+                ";
+                }
+                ?>
+
+
+
+
+
             </div><!-- /.row-->
         </div><!-- /.container -->
+
     </section><!-- /#price-drop -->
     <!-- /#adveritsing-->
     <!-- /#new-properties-->
@@ -280,7 +228,6 @@
 
 <script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/smoothscroll.js"></script>
 <script type="text/javascript" src="../js/markerwithlabel_packed.js"></script>
 <script type="text/javascript" src="../js/infobox.js"></script>
 <script type="text/javascript" src="../js/owl.carousel.min.js"></script>
